@@ -9,18 +9,18 @@ import {
   Search,
   Save,
 } from "lucide-react";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent } from "react";
 import "../globals.css";
-import { useTable } from "./Hooks/UseTableHook";
 import Button from "./UI Components/Button";
 import Input from "./UI Components/Input";
 import Checkbox from "./UI Components/Checkbox";
+import { useTable } from "../Hooks/useTableHook";
 
 const AdminPanel = () => {
   const {
     // data
     data,
-    // navigation
+    // pagination
     currentPage,
     currentData,
     totalPages,
@@ -40,15 +40,11 @@ const AdminPanel = () => {
     setSearchQuery,
     // edit
     isEditActive,
-    editedEmail,
-    editedName,
-    editedRole,
-    setEditedEmail,
-    setEditedName,
-    setEditedRole,
+    editForm,
     setIsEditActive,
     toggleModal,
     handleSaveChanges,
+    handleFormChange,
   } = useTable();
 
   return (
@@ -133,7 +129,7 @@ const AdminPanel = () => {
             </tr>
           </thead>
           <tbody>
-            {currentData.map((el, index) => {
+            {currentData.map((el) => {
               return (
                 <tr
                   key={el.id}
@@ -303,10 +299,11 @@ const AdminPanel = () => {
                     Name
                   </label>
                   <Input
+                    name="name"
                     type="text"
                     placeholder="Name"
-                    value={editedName}
-                    onChange={(e) => setEditedName(e.target.value)}
+                    value={editForm.name}
+                    onChange={(e) => handleFormChange(e)}
                   />
                 </div>
                 {/* edit email */}
@@ -315,10 +312,11 @@ const AdminPanel = () => {
                     Email
                   </label>
                   <Input
+                    name="email"
                     type="text"
                     placeholder="Email"
-                    value={editedEmail}
-                    onChange={(e) => setEditedEmail(e.target.value)}
+                    value={editForm.email}
+                    onChange={(e) => handleFormChange(e)}
                   />
                 </div>
                 {/* edit role */}
@@ -327,10 +325,11 @@ const AdminPanel = () => {
                     Role
                   </label>
                   <Input
+                    name="role"
                     type="text"
                     placeholder="Role"
-                    value={editedRole}
-                    onChange={(e) => setEditedRole(e.target.value)}
+                    value={editForm.role}
+                    onChange={(e) => handleFormChange(e)}
                   />
                 </div>
                 <button

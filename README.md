@@ -1,4 +1,4 @@
-⚠️ Hey 👋 please ignore the commits made after 3rd December these changes were made to refactor the code in a better way ( this is alert is temporary and will be removed in future )
+⚠️ Hey 👋 please ignore the commits made after 3rd December these changes were made to refactor the code in a better way ( this alert is temporary and will be removed in future )
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
